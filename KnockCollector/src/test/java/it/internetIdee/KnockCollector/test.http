@@ -1,0 +1,29 @@
+POST http://localhost:8080/users/addUser
+Content-Type: application/json
+
+{
+  "email": "pippo@example.com",
+  "password": "securepassword",
+  "role": "USER",
+  "personalData": {
+    "firstName": "Pippo",
+    "lastName": "Pluto",
+    "fiscalCode": "PLTPPP01H01F205Z",
+    "birthDate": "1990-01-01",
+    "birthPlace": "Roma"
+  },
+  "addresses": [
+    {
+      "roadName": "Via Roma",
+      "houseNumbe": "42A",
+      "roadType": "Via",
+      "cityHall": {
+        "istatCode": "123456",
+        "province": "RM",
+        "region": "Lazio",
+        "zipCode": "00100",
+        "cityName": "Roma"
+      }
+    }
+  ]
+}

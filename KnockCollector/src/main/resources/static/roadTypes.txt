@@ -1,0 +1,8 @@
+Via
+Vicolo
+Viale
+Traversa
+Borgo
+Piazzale
+Largo
+Lungomare
