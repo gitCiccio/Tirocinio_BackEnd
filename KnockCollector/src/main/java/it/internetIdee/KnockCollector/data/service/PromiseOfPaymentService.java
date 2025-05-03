@@ -65,4 +65,14 @@ public class PromiseOfPaymentService {
         }
     }
 
+    public boolean deleteAllPromiseOfPayment(Practice practice){
+        try{
+            List<PromiseOfPayment> promiseOfPayments = promiseOfPaymentRepository.findAllByPractice(practice);
+            promiseOfPaymentRepository.deleteAll(promiseOfPayments);
+            return true;
+        }catch(Exception e){
+            log.debug("Errore nella cancellazione della promessa");
+            return false;
+        }
+    }
 }

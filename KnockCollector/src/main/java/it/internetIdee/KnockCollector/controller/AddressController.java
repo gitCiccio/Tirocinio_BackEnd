@@ -1,10 +1,11 @@
 package it.internetIdee.KnockCollector.controller;
 
+import it.internetIdee.KnockCollector.data.entity.Address;
+import it.internetIdee.KnockCollector.data.service.AddressService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import it.internetIdee.KnockCollector.data.entity.Address;
-import it.internetIdee.KnockCollector.data.service.AddressService;
+
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;

@@ -67,4 +67,15 @@ public class InstallmentService {
             return false;
          }
     }
+
+    public boolean deleteAllInstallment(Practice practice){
+        try {
+            List<Installment> installments = installmentRepository.findAllByPractice(practice);
+            installmentRepository.deleteAll(installments);
+            return true;
+        } catch (Exception e) {
+            log.debug("Errore nell'eliminazione delle rate.");
+            return false;
+        }
+    }
 }

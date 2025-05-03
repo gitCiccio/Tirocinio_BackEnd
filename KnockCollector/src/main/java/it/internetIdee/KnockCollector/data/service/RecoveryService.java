@@ -65,4 +65,16 @@ public class RecoveryService {
             return false;
         }
     }
+
+    //Elimina tutti i recuperi
+    public boolean deleteAllRecovery(Practice practice){
+        try {
+            List<Recovery> recoveries = recoveryRepository.findAllByPractice(practice);
+            recoveryRepository.deleteAll(recoveries);
+            return true;
+        }catch (Exception e){
+            log.debug("Errore nella cancellazione dei recuperi");
+            return false;
+        }
+    }
 }

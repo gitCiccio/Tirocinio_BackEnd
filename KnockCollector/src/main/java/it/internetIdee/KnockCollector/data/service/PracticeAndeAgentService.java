@@ -40,4 +40,14 @@ public class PracticeAndeAgentService {
             return null;
         }
     }
+
+    public Boolean deletePracticeAndAgent(UUID practiceId){
+        try {
+             practiceAndAgentRepository.deleteById(practiceId);
+            return true;
+        }catch (Exception e){
+            log.debug("Errore nella rimozione dell'associazione pratica/agente");
+            return false;
+        }
+    }
 }

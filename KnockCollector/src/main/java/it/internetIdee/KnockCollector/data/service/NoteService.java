@@ -59,5 +59,26 @@ public class NoteService {
         }
     }
 
+    public Boolean deleteNoteById(UUID noteId){
+        try {
+            notesRepository.deleteById(noteId);
+            return true;
+        }catch (Exception e){
+            log.debug("Impossibile eliminare la nota.");
+            return false;
+        }
+    }
+
+    //Se elimino l'intera pratica
+    public Boolean deleteNoteByPractice(Practice practice){
+        try {
+            List<Note> practiceNotes = notesRepository.findByPractice(practice);
+            notesRepository.deleteAll(practiceNotes);
+            return true;
+        }catch (Exception e){
+            log.debug("Impossibile eliminare le note.");
+            return false;
+        }
+    }
 
 }

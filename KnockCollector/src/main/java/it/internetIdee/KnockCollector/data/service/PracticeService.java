@@ -148,13 +148,25 @@ public class PracticeService {
             List<Practice> agentPractices = new ArrayList<>();
             for(UUID practiceId : practicesId){
                 Optional<Practice> optionalPractice = practiceRepository.findById(practiceId);
-                if(optionalPractice.isPresent())
-                    agentPractices.add(optionalPractice.get());
+                optionalPractice.ifPresent(agentPractices::add);
             }
             return agentPractices;
         } catch (Exception e) {
             log.debug("Errore nel recupero della pratica");
             return null;
+        }
+    }
+
+    public boolean deletePractice(Practice practice){
+        try {
+            recoveryService.deleteAllRecovery(practice);
+            installmentService.deleteAllInstallment(practice);
+            promiseOfPaymentService.deleteAllPromiseOfPayment(practice);
+            practiceRepository.delete(practice);
+            return true;
+        }catch (Exception e){
+            log.debug("Errore nell'eliminazione della pratica");
+            return false;
         }
     }
 }

@@ -6,6 +6,7 @@ import it.internetIdee.KnockCollector.data.entity.Agent;
 
 import javax.crypto.SecretKey;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
@@ -14,6 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
+@RequiredArgsConstructor
 public class JwtService {
 
     private final String SECRET = "super-secret-jwt-key-which-must-be-long-enough";
